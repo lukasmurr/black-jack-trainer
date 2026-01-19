@@ -1,0 +1,173 @@
+.betting-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 16px;
+  padding: 24px;
+  background: rgba(0, 0, 0, 0.3);
+  border-radius: 16px;
+}
+
+.bankroll-display,
+.current-bet {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 18px;
+}
+
+.bankroll-display .label,
+.current-bet .label {
+  color: #9ca3af;
+}
+
+.bankroll-display .amount {
+  color: #10b981;
+  font-weight: bold;
+}
+
+.current-bet .amount {
+  color: #fbbf24;
+  font-weight: bold;
+  font-size: 24px;
+}
+
+.chips-container {
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.chip {
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  border: 3px solid;
+  font-weight: bold;
+  font-size: 14px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  font-family: inherit;
+}
+
+.chip:disabled {
+  opacity: 0.3;
+  cursor: not-allowed;
+}
+
+.chip:not(:disabled):hover {
+  transform: scale(1.1);
+}
+
+.chip.selected {
+  transform: scale(1.15);
+  box-shadow: 0 0 20px rgba(255, 255, 255, 0.5);
+}
+
+/* Chip colors based on value */
+.chip:nth-child(1) { /* €10 */
+  background: #3b82f6;
+  border-color: #1d4ed8;
+  color: white;
+}
+
+.chip:nth-child(2) { /* €25 */
+  background: #10b981;
+  border-color: #059669;
+  color: white;
+}
+
+.chip:nth-child(3) { /* €50 */
+  background: #f59e0b;
+  border-color: #d97706;
+  color: white;
+}
+
+.chip:nth-child(4) { /* €100 */
+  background: #1f2937;
+  border-color: #374151;
+  color: white;
+}
+
+.chip:nth-child(5) { /* €500 */
+  background: #7c3aed;
+  border-color: #5b21b6;
+  color: white;
+}
+
+.bet-controls {
+  display: flex;
+  gap: 12px;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.control-btn {
+  padding: 12px 24px;
+  border: none;
+  border-radius: 8px;
+  font-size: 16px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  font-family: inherit;
+}
+
+.control-btn:disabled {
+  opacity: 0.4;
+  cursor: not-allowed;
+  transform: none !important;
+}
+
+.control-btn.clear {
+  background: #6b7280;
+  color: white;
+}
+
+.control-btn.clear:not(:disabled):hover {
+  background: #4b5563;
+}
+
+.control-btn.add {
+  background: #10b981;
+  color: white;
+}
+
+.control-btn.add:not(:disabled):hover {
+  background: #059669;
+}
+
+.control-btn.deal {
+  background: linear-gradient(135deg, #f59e0b 0%, #dc2626 100%);
+  color: white;
+  font-size: 18px;
+}
+
+.control-btn.deal:not(:disabled):hover {
+  transform: scale(1.05);
+  box-shadow: 0 4px 20px rgba(245, 158, 11, 0.5);
+}
+
+.bet-limits {
+  font-size: 12px;
+  color: #6b7280;
+}
+
+@media (max-width: 640px) {
+  .betting-container {
+    padding: 16px;
+    gap: 12px;
+  }
+
+  .chip {
+    width: 50px;
+    height: 50px;
+    font-size: 12px;
+  }
+
+  .control-btn {
+    padding: 10px 16px;
+    font-size: 14px;
+  }
+}

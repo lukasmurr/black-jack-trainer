@@ -1,0 +1,101 @@
+<div class="training-page">
+  <header class="training-header">
+    <h1>📚 Strategie-Training</h1>
+    <p class="subtitle">Lerne die optimale Blackjack-Strategie</p>
+  </header>
+
+  <div class="training-layout">
+    <!-- Sidebar -->
+    <aside class="sidebar">
+      <app-stats-display
+        [stats]="gameState.trainingStats()"
+        (resetClicked)="onResetStats()"
+      />
+
+      <app-training-filter
+        [filter]="gameState.trainingState().filter"
+        (filterChanged)="onFilterChanged($event)"
+      />
+    </aside>
+
+    <!-- Main Training Area -->
+    <main class="training-area">
+      @if (gameState.trainingState().currentScenario) {
+        <div class="scenario-container">
+          <div class="scenario-type">
+            {{ getHandTypeLabel() }}
+          </div>
+
+          <!-- Dealer Card -->
+          <section class="dealer-section">
+            <app-hand
+              [hand]="gameState.dealerHand()"
+              label="Dealer zeigt"
+              [isDealer]="true"
+            />
+          </section>
+
+          <!-- Player Hand -->
+          <section class="player-section">
+            <app-hand
+              [hand]="gameState.activeHand()"
+              label="Deine Hand"
+              [isActive]="true"
+            />
+          </section>
+
+          <!-- Question -->
+          <div class="question-box">
+            <span class="question-icon">❓</span>
+            <span class="question-text">Was ist die optimale Aktion?</span>
+          </div>
+
+          <!-- Action Buttons -->
+          <app-action-buttons
+            [canHit]="!gameState.showMessage()"
+            [canStand]="!gameState.showMessage()"
+            [canDouble]="!gameState.showMessage()"
+            [canSplit]="isPairScenario() && !gameState.showMessage()"
+            (hitClicked)="onAnswer('hit')"
+            (standClicked)="onAnswer('stand')"
+            (doubleClicked)="onAnswer('double')"
+            (splitClicked)="onAnswer('split')"
+          />
+        </div>
+      } @else {
+        <div class="no-scenario">
+          <p>Lade Trainingsszenarien...</p>
+          <button class="start-btn" (click)="startTraining()">
+            Training starten
+          </button>
+        </div>
+      }
+    </main>
+  </div>
+
+  <!-- Message Overlay -->
+  @if (gameState.showMessage()) {
+    <div class="feedback-overlay" (click)="onNextScenario()">
+      <div 
+        class="feedback-box"
+        [class.correct]="gameState.trainingState().lastAnswer?.wasCorrect"
+        [class.incorrect]="!gameState.trainingState().lastAnswer?.wasCorrect"
+      >
+        <div class="feedback-icon">
+          {{ gameState.trainingState().lastAnswer?.wasCorrect ? '✓' : '✗' }}
+        </div>
+        <div class="feedback-text">
+          {{ gameState.message() }}
+        </div>
+        @if (gameState.trainingState().currentScenario?.explanation) {
+          <div class="feedback-explanation">
+            {{ gameState.trainingState().currentScenario?.explanation }}
+          </div>
+        }
+        <button class="next-btn">
+          Weiter (Klick oder Leertaste)
+        </button>
+      </div>
+    </div>
+  }
+</div>
