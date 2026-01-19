@@ -1,6 +1,6 @@
 {
   "configVersion": 1,
-  "timestamp": 1768834925187,
+  "timestamp": 1768834977774,
   "index": "/index.html",
   "assetGroups": [
     {
@@ -196,7 +196,7 @@
     "/game-cards/queen_of_spades2.svg": "c4713106e71430eab2d46fb14c66243d36073cdb",
     "/game-cards/red_joker.svg": "e97a357c01734cfc344e907e6b2d0c55efe2ec64",
     "/icons/icon-192x192.svg": "b23c7071203da893ca82abe27a7b5011752fa789",
-    "/index.html": "05ff7e233847a0c09813d3f77cd9d69f0b74d2a0",
+    "/index.html": "2817f155c76a9489743eb4cf319505b111320043",
     "/main-75YUM76Z.js": "b64eef86e0887a6c62a652557af7080a874f6b31",
     "/manifest.webmanifest": "25d5929f7705db7325147ef57b7dc53d4ec4b92d",
     "/polyfills-6ISPNSXF.js": "b15ba4d1036f2db285649ff775f184bcdcd0b08a",
