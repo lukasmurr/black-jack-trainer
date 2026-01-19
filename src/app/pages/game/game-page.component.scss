@@ -1,5 +1,11 @@
+:host {
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+}
+
 .game-page {
-  min-height: 100vh;
+  flex: 1;
   background: linear-gradient(135deg, #064e3b 0%, #065f46 50%, #047857 100%);
   padding: 20px;
   display: flex;
