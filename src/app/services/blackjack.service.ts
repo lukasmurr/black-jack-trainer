@@ -364,6 +364,15 @@ export class BlackjackService {
             };
         }
 
+        // Dealer has blackjack (and player doesn't, otherwise caught above)
+        if (dealerValue.isBlackjack) {
+            return {
+                outcome: 'lose',
+                payout: 0,
+                message: 'Dealer hat Blackjack! Du verlierst.',
+            };
+        }
+
         // Dealer busted
         if (dealerValue.isBusted) {
             return {
