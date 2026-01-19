@@ -3,7 +3,8 @@
  * Uses Angular Signals for reactive state management
  */
 
-import { Injectable, signal, computed, effect, inject } from '@angular/core';
+import { Injectable, signal, computed, effect, inject, PLATFORM_ID } from '@angular/core';
+import { isPlatformBrowser } from '@angular/common';
 import { BlackjackService } from './blackjack.service';
 import { StrategyService } from './strategy.service';
 import {
@@ -28,6 +29,7 @@ import { Card } from '../models/card.model';
     providedIn: 'root',
 })
 export class GameStateService {
+    private readonly platformId = inject(PLATFORM_ID);
     private readonly blackjackService = inject(BlackjackService);
     private readonly strategyService = inject(StrategyService);
 
@@ -121,12 +123,16 @@ export class GameStateService {
 
     constructor() {
         // Load training stats from localStorage
-        this.loadTrainingStats();
+        if (isPlatformBrowser(this.platformId)) {
+            this.loadTrainingStats();
+        }
 
         // Auto-save training stats
         effect(() => {
             const stats = this._trainingState().stats;
-            localStorage.setItem('blackjack-training-stats', JSON.stringify(stats));
+            if (isPlatformBrowser(this.platformId)) {
+                localStorage.setItem('blackjack-training-stats', JSON.stringify(stats));
+            }
         });
     }
 
@@ -508,13 +514,18 @@ export class GameStateService {
             ...state,
             stats: INITIAL_TRAINING_STATS,
         }));
-        localStorage.removeItem('blackjack-training-stats');
+        if (isPlatformBrowser(this.platformId)) {
+            localStorage.removeItem('blackjack-training-stats');
+        }
     }
 
     /**
      * Loads training stats from localStorage
      */
     private loadTrainingStats(): void {
+        if (!isPlatformBrowser(this.platformId)) {
+            return;
+        }
         try {
             const saved = localStorage.getItem('blackjack-training-stats');
             if (saved) {
