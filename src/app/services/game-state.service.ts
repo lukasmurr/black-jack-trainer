@@ -121,6 +121,10 @@ export class GameStateService {
         return Math.round((stats.correctAttempts / stats.totalAttempts) * 100);
     });
 
+    // Delays for animations
+    private readonly ANIMATION_DELAY = 800; // Time for card deal animation
+    private readonly DEALER_TURN_DELAY = 1000; // Time for dealer turn execution
+
     constructor() {
         // Load training stats from localStorage
         if (isPlatformBrowser(this.platformId)) {
@@ -230,7 +234,11 @@ export class GameStateService {
         this._deck.set(result.remainingDeck);
 
         if (result.hand.isBusted || result.hand.isStanding) {
-            this.moveToNextHand();
+            if (isPlatformBrowser(this.platformId)) {
+                setTimeout(() => this.moveToNextHand(), this.ANIMATION_DELAY);
+            } else {
+                this.moveToNextHand();
+            }
         }
     }
 
@@ -269,7 +277,11 @@ export class GameStateService {
         this._playerHands.set(hands);
         this._deck.set(result.remainingDeck);
 
-        this.moveToNextHand();
+        if (isPlatformBrowser(this.platformId)) {
+            setTimeout(() => this.moveToNextHand(), this.ANIMATION_DELAY);
+        } else {
+            this.moveToNextHand();
+        }
     }
 
     /**
@@ -340,7 +352,11 @@ export class GameStateService {
             this._deck.set(result.remainingDeck);
         }
 
-        this.settlementPhase();
+        if (isPlatformBrowser(this.platformId)) {
+            setTimeout(() => this.settlementPhase(), this.DEALER_TURN_DELAY);
+        } else {
+            this.settlementPhase();
+        }
     }
 
     /**
