@@ -3,7 +3,7 @@
  */
 
 import { Component, inject, OnInit, HostListener, ChangeDetectionStrategy } from '@angular/core';
-import { GameStateService, StrategyService } from '../../services';
+import { GameStateService, StrategyService, SeoService } from '../../services';
 import {
     HandComponent,
     ActionButtonsComponent,
@@ -29,6 +29,7 @@ import { TrainingFilter } from '../../models';
 export class TrainingPageComponent implements OnInit {
     protected readonly gameState = inject(GameStateService);
     private readonly strategyService = inject(StrategyService);
+    private readonly seoService = inject(SeoService);
 
     @HostListener('window:keydown', ['$event'])
     handleKeyDown(event: KeyboardEvent): void {
@@ -61,6 +62,15 @@ export class TrainingPageComponent implements OnInit {
     }
 
     ngOnInit(): void {
+        // SEO Meta-Tags aktualisieren
+        this.seoService.updateSeo({
+            title: 'Blackjack Strategie Training',
+            description: 'Lerne die optimale Blackjack Basic Strategy mit unserem interaktiven Training. Übe kostenlos und verbessere deine Gewinnchancen.',
+            keywords: 'Blackjack Training, Basic Strategy, Blackjack lernen, Kartenspiel üben, Casino Strategie',
+            canonicalUrl: 'https://blackjack-trainer.de/training',
+            schema: this.seoService.getTrainingPageSchema(),
+        });
+
         this.strategyService.loadStrategy().subscribe({
             next: () => this.gameState.startTraining(),
             error: (err) => console.error('Failed to load strategy:', err),

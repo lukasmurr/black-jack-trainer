@@ -1,14 +1,17 @@
-<div class="game-page">
+<article class="game-page" itemscope itemtype="https://schema.org/VideoGame">
   <header class="game-header">
-    <h1>🃏 Blackjack</h1>
-    <div class="round-info">
+    <h1 itemprop="name">🃏 Blackjack Spiel</h1>
+    <div class="round-info" aria-live="polite">
       Runde: {{ gameState.roundNumber() }}
     </div>
   </header>
+  <meta itemprop="description" content="Kostenloses Blackjack-Spiel zum Üben der Strategie">
+  <meta itemprop="genre" content="Card Game">
+  <meta itemprop="gamePlatform" content="Web Browser">
 
-  <main class="game-area">
+  <main class="game-area" role="main">
     <!-- Dealer Section -->
-    <section class="dealer-section">
+    <section class="dealer-section" aria-label="Dealer-Hand">
       <app-hand
         [hand]="gameState.dealerHand()"
         label="Dealer"
@@ -19,7 +22,7 @@
 
     <!-- Table Info -->
     @if (gameState.phase() === 'game-over') {
-      <div class="result-banner">
+      <div class="result-banner" role="alert" aria-live="assertive">
         @for (result of gameState.results(); track $index) {
           <span class="result-text" [class.win]="result.outcome === 'win' || result.outcome === 'blackjack'" [class.lose]="result.outcome === 'lose'">
             {{ result.message }}
@@ -29,7 +32,7 @@
     }
 
     <!-- Player Section -->
-    <section class="player-section">
+    <section class="player-section" aria-label="Spieler-Hand">
       @for (hand of gameState.playerHands(); track $index; let i = $index) {
         <app-hand
           [hand]="hand"

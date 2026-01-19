@@ -2,9 +2,9 @@
  * App Component - Root component with navigation
  */
 
-import { Component, inject, signal } from '@angular/core';
+import { Component, inject, signal, OnInit } from '@angular/core';
 import { RouterOutlet, RouterLink, RouterLinkActive } from '@angular/router';
-import { GameStateService } from './services';
+import { GameStateService, SeoService } from './services';
 
 @Component({
   selector: 'app-root',
@@ -13,11 +13,17 @@ import { GameStateService } from './services';
   templateUrl: './app.html',
   styleUrl: './app.scss',
 })
-export class App {
+export class App implements OnInit {
   private readonly gameState = inject(GameStateService);
+  private readonly seoService = inject(SeoService);
 
   protected readonly title = signal('Blackjack Trainer');
   protected readonly mobileMenuOpen = signal(false);
+
+  ngOnInit(): void {
+    // SEO-Service initialisieren für automatische Canonical-URL-Updates
+    this.seoService.initialize();
+  }
 
   toggleMobileMenu(): void {
     this.mobileMenuOpen.update(v => !v);

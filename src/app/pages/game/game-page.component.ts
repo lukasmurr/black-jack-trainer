@@ -2,8 +2,8 @@
  * Game Page Component - Main Blackjack game view
  */
 
-import { Component, inject, HostListener, ChangeDetectionStrategy } from '@angular/core';
-import { GameStateService } from '../../services';
+import { Component, inject, OnInit, HostListener, ChangeDetectionStrategy } from '@angular/core';
+import { GameStateService, SeoService } from '../../services';
 import {
     HandComponent,
     ActionButtonsComponent,
@@ -24,8 +24,20 @@ import {
     styleUrl: './game-page.component.scss',
     changeDetection: ChangeDetectionStrategy.OnPush,
 })
-export class GamePageComponent {
+export class GamePageComponent implements OnInit {
     protected readonly gameState = inject(GameStateService);
+    private readonly seoService = inject(SeoService);
+
+    ngOnInit(): void {
+        // SEO Meta-Tags aktualisieren
+        this.seoService.updateSeo({
+            title: 'Blackjack Spiel - Kostenloser Simulator',
+            description: 'Spiele Blackjack kostenlos in unserem Simulator. Teste deine Strategie ohne Risiko und verbessere deine Fähigkeiten.',
+            keywords: 'Blackjack spielen, Blackjack kostenlos, Blackjack Simulator, Casino Spiel, Kartenspiel online',
+            canonicalUrl: 'https://blackjack-trainer.de/game',
+            schema: this.seoService.getGamePageSchema(),
+        });
+    }
 
     @HostListener('window:keydown', ['$event'])
     handleKeyDown(event: KeyboardEvent): void {

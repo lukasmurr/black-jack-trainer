@@ -36,7 +36,11 @@
             "styles": [
               "src/styles.scss"
             ],
-            "serviceWorker": "ngsw-config.json"
+            "serviceWorker": "ngsw-config.json",
+            "prerender": {
+              "discoverRoutes": true,
+              "routesFile": "prerender-routes.txt"
+            }
           },
           "configurations": {
             "production": {

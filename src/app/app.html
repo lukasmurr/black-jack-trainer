@@ -43,6 +43,12 @@
   <router-outlet />
 </main>
 
-<footer class="app-footer">
-  <p>&copy; 2026 Blackjack Trainer | Fuer Uebungszwecke</p>
+<footer class="app-footer" itemscope itemtype="https://schema.org/WPFooter">
+  <div class="footer-content">
+    <p>&copy; 2026 <span itemprop="name">Blackjack Trainer</span> | Fuer Uebungszwecke</p>
+    <nav class="footer-nav" aria-label="Footer Navigation">
+      <a href="/training" title="Blackjack Training">Training</a>
+      <a href="/game" title="Blackjack Spiel">Spielen</a>
+    </nav>
+  </div>
 </footer>
