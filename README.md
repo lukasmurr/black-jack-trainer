@@ -4,7 +4,6 @@ Ein interaktiver Blackjack-Trainer und Simulator, entwickelt mit modernem Angula
 
 ![Project Status](https://img.shields.io/badge/status-active-success.svg)
 ![Angular](https://img.shields.io/badge/angular-v21-dd0031.svg)
-![License](https://img.shields.io/badge/license-MIT-blue.svg)
 
 ## 🌟 Features
 
