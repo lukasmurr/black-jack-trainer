@@ -30,7 +30,7 @@ export class SeoService {
   private readonly document = inject(DOCUMENT);
 
   private readonly baseUrl = 'https://blackjack-trainer.de';
-  private readonly defaultImage = 'https://blackjack-trainer.de/icons/icon-512x512.png';
+  private readonly defaultImage = 'https://blackjack-trainer.de/logo.png';
   private readonly siteName = 'Blackjack Trainer';
 
   private schemaScriptElement: HTMLScriptElement | null = null;
@@ -137,7 +137,7 @@ export class SeoService {
         url: this.baseUrl,
         logo: {
           '@type': 'ImageObject',
-          url: `${this.baseUrl}/icons/icon-512x512.png`,
+          url: `${this.baseUrl}/logo.png`,
         },
       },
     };
@@ -252,7 +252,7 @@ export class SeoService {
         url: this.baseUrl,
         logo: {
           '@type': 'ImageObject',
-          url: `${this.baseUrl}/icons/icon-512x512.png`,
+          url: `${this.baseUrl}/logo.png`,
         },
       },
       inLanguage: 'de-DE',
