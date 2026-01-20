@@ -33,7 +33,7 @@ jobs:
         run: npm ci
 
       - name: Build Angular app
-        run: npm run build -- --configuration production --base-href /black-jack-trainer/
+        run: npm run build -- --configuration production --base-href /
 
       - name: Setup Pages
         uses: actions/configure-pages@v5
