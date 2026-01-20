@@ -13,6 +13,19 @@
       <a routerLink="/game" routerLinkActive="active" class="nav-link" aria-label="Zum Spiel">
         <span>&#127920;</span> Spielen
       </a>
+      <div class="nav-dropdown">
+        <button class="nav-link dropdown-trigger" aria-haspopup="true">
+          <span>&#128214;</span> Lernen <span class="dropdown-arrow">▾</span>
+        </button>
+        <div class="dropdown-menu" role="menu">
+          <a routerLink="/regeln" routerLinkActive="active" class="dropdown-item" role="menuitem">Regeln</a>
+          <a routerLink="/spielweise" routerLinkActive="active" class="dropdown-item" role="menuitem">Spielweise</a>
+          <a routerLink="/kartenwerte" routerLinkActive="active" class="dropdown-item" role="menuitem">Kartenwerte</a>
+          <a routerLink="/strategie" routerLinkActive="active" class="dropdown-item" role="menuitem">Strategie</a>
+          <a routerLink="/glossar" routerLinkActive="active" class="dropdown-item" role="menuitem">Glossar</a>
+          <a routerLink="/faq" routerLinkActive="active" class="dropdown-item" role="menuitem">FAQ</a>
+        </div>
+      </div>
     </div>
 
     <!-- Mobile Menu Toggle -->
@@ -35,6 +48,15 @@
     <a routerLink="/game" routerLinkActive="active" class="nav-link" (click)="closeMobileMenu()" role="menuitem">
       <span>&#127920;</span> Spielen
     </a>
+    <div class="mobile-nav-section">
+      <span class="mobile-nav-heading">Lernen</span>
+      <a routerLink="/regeln" routerLinkActive="active" class="nav-link sub" (click)="closeMobileMenu()" role="menuitem">Regeln</a>
+      <a routerLink="/spielweise" routerLinkActive="active" class="nav-link sub" (click)="closeMobileMenu()" role="menuitem">Spielweise</a>
+      <a routerLink="/kartenwerte" routerLinkActive="active" class="nav-link sub" (click)="closeMobileMenu()" role="menuitem">Kartenwerte</a>
+      <a routerLink="/strategie" routerLinkActive="active" class="nav-link sub" (click)="closeMobileMenu()" role="menuitem">Strategie</a>
+      <a routerLink="/glossar" routerLinkActive="active" class="nav-link sub" (click)="closeMobileMenu()" role="menuitem">Glossar</a>
+      <a routerLink="/faq" routerLinkActive="active" class="nav-link sub" (click)="closeMobileMenu()" role="menuitem">FAQ</a>
+    </div>
   </div>
   }
 </nav>
@@ -47,8 +69,11 @@
   <div class="footer-content">
     <p>&copy; 2026 <span itemprop="name">Blackjack Trainer</span> | Für Übungszwecke</p>
     <nav class="footer-nav" aria-label="Footer Navigation">
-      <a href="/training" title="Blackjack Training">Training</a>
-      <a href="/game" title="Blackjack Spiel">Spielen</a>
+      <a routerLink="/training" title="Blackjack Training">Training</a>
+      <a routerLink="/game" title="Blackjack Spiel">Spielen</a>
+      <a routerLink="/regeln" title="Blackjack Regeln">Regeln</a>
+      <a routerLink="/strategie" title="Blackjack Strategie">Strategie</a>
+      <a routerLink="/faq" title="Häufige Fragen">FAQ</a>
     </nav>
   </div>
 </footer>

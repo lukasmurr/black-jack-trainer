@@ -1,0 +1,192 @@
+<article class="content-page strategie-page">
+  <header class="page-header">
+    <nav class="breadcrumb" aria-label="Breadcrumb">
+      <a routerLink="/">Startseite</a>
+      <span aria-hidden="true">›</span>
+      <span aria-current="page">Strategie</span>
+    </nav>
+    <h1>Blackjack Strategie – Die optimale Basic Strategy</h1>
+    <p class="intro">
+      Die „Basic Strategy" ist die mathematisch optimale Spielweise beim Blackjack (auch Black Jack geschrieben). 
+      Mit ihr reduzierst du den Hausvorteil auf unter 0,5% und triffst in jeder Situation die bestmögliche Entscheidung.
+    </p>
+  </header>
+
+  <section class="content-section" id="was-ist-basic-strategy">
+    <h2>Was ist die Basic Strategy?</h2>
+    <p>
+      Die Basic Strategy wurde in den 1960er-Jahren durch Computeranalysen entwickelt. Sie basiert 
+      auf der Wahrscheinlichkeitsrechnung und berücksichtigt:
+    </p>
+    <ul>
+      <li>Deine aktuelle Kartensumme</li>
+      <li>Die offene Dealer-Karte (Upcard)</li>
+      <li>Ob du eine Soft Hand, Hard Hand oder ein Paar hast</li>
+    </ul>
+    <p>
+      Für jede mögliche Kombination gibt es genau eine optimale Aktion. Das Gute: Du musst nicht 
+      rechnen – du lernst einfach die Tabelle auswendig.
+    </p>
+  </section>
+
+  <section class="content-section" id="hard-hands">
+    <h2>Hard Hands Strategie</h2>
+    <p>
+      Bei Hard Hands (kein Ass, das als 11 zählt) gilt als Faustregel:
+    </p>
+    <div class="strategy-box">
+      <div class="strategy-rule">
+        <span class="condition">Hard 17+</span>
+        <span class="action">→ Immer Stand</span>
+      </div>
+      <div class="strategy-rule">
+        <span class="condition">Hard 12–16 vs. Dealer 2–6</span>
+        <span class="action">→ Stand (Dealer hat Bust-Risiko)</span>
+      </div>
+      <div class="strategy-rule">
+        <span class="condition">Hard 12–16 vs. Dealer 7+</span>
+        <span class="action">→ Hit (Dealer wahrscheinlich stark)</span>
+      </div>
+      <div class="strategy-rule">
+        <span class="condition">Hard 11</span>
+        <span class="action">→ Double (fast immer)</span>
+      </div>
+      <div class="strategy-rule">
+        <span class="condition">Hard 10 vs. Dealer 2–9</span>
+        <span class="action">→ Double</span>
+      </div>
+      <div class="strategy-rule">
+        <span class="condition">Hard 9 vs. Dealer 3–6</span>
+        <span class="action">→ Double</span>
+      </div>
+      <div class="strategy-rule">
+        <span class="condition">Hard 8 oder weniger</span>
+        <span class="action">→ Immer Hit</span>
+      </div>
+    </div>
+  </section>
+
+  <section class="content-section" id="soft-hands">
+    <h2>Soft Hands Strategie</h2>
+    <p>
+      Bei Soft Hands (Ass zählt als 11) kannst du aggressiver spielen, weil kein direkter Bust droht:
+    </p>
+    <div class="strategy-box">
+      <div class="strategy-rule">
+        <span class="condition">Soft 19–20</span>
+        <span class="action">→ Stand</span>
+      </div>
+      <div class="strategy-rule">
+        <span class="condition">Soft 18 vs. Dealer 2, 7, 8</span>
+        <span class="action">→ Stand</span>
+      </div>
+      <div class="strategy-rule">
+        <span class="condition">Soft 18 vs. Dealer 3–6</span>
+        <span class="action">→ Double</span>
+      </div>
+      <div class="strategy-rule">
+        <span class="condition">Soft 17</span>
+        <span class="action">→ Double vs. 3–6, sonst Hit</span>
+      </div>
+      <div class="strategy-rule">
+        <span class="condition">Soft 15–16</span>
+        <span class="action">→ Double vs. 4–6, sonst Hit</span>
+      </div>
+      <div class="strategy-rule">
+        <span class="condition">Soft 13–14</span>
+        <span class="action">→ Double vs. 5–6, sonst Hit</span>
+      </div>
+    </div>
+  </section>
+
+  <section class="content-section" id="paare">
+    <h2>Paare (Splitting) Strategie</h2>
+    <p>
+      Bei Paaren entscheidest du, ob du teilen (Split) sollst. Merkregeln:
+    </p>
+    <div class="strategy-box">
+      <div class="strategy-rule highlight">
+        <span class="condition">A-A und 8-8</span>
+        <span class="action">→ IMMER Split</span>
+      </div>
+      <div class="strategy-rule warning">
+        <span class="condition">10-10 und 5-5</span>
+        <span class="action">→ NIE Split</span>
+      </div>
+      <div class="strategy-rule">
+        <span class="condition">9-9</span>
+        <span class="action">→ Split außer vs. 7, 10, Ass</span>
+      </div>
+      <div class="strategy-rule">
+        <span class="condition">7-7</span>
+        <span class="action">→ Split vs. 2–7</span>
+      </div>
+      <div class="strategy-rule">
+        <span class="condition">6-6</span>
+        <span class="action">→ Split vs. 2–6</span>
+      </div>
+      <div class="strategy-rule">
+        <span class="condition">2-2, 3-3</span>
+        <span class="action">→ Split vs. 2–7</span>
+      </div>
+      <div class="strategy-rule">
+        <span class="condition">4-4</span>
+        <span class="action">→ Split vs. 5–6 (sonst Hit)</span>
+      </div>
+    </div>
+  </section>
+
+  <section class="content-section" id="hausvorteil">
+    <h2>Hausvorteil und Gewinnchancen</h2>
+    <p>
+      Mit perfekter Basic Strategy reduzierst du den Hausvorteil auf ca. <strong>0,4–0,5%</strong>. 
+      Das bedeutet: Pro 100€ Einsatz verlierst du im Durchschnitt nur 40–50 Cent.
+    </p>
+    <div class="comparison-box">
+      <div class="comparison-item bad">
+        <span class="label">Ohne Strategie (Bauchgefühl)</span>
+        <span class="value">2–5% Hausvorteil</span>
+      </div>
+      <div class="comparison-item good">
+        <span class="label">Mit Basic Strategy</span>
+        <span class="value">~0,5% Hausvorteil</span>
+      </div>
+    </div>
+    <p>
+      Wichtig: Die Basic Strategy garantiert keinen Gewinn, aber sie gibt dir die besten 
+      mathematischen Chancen für langfristigen Erfolg.
+    </p>
+  </section>
+
+  <section class="content-section" id="tipps">
+    <h2>Praktische Tipps zum Lernen</h2>
+    <ol>
+      <li>
+        <strong>Lerne in Blöcken:</strong> Erst Hard Hands, dann Soft Hands, dann Paare
+      </li>
+      <li>
+        <strong>Nutze Eselsbrücken:</strong> „8er und Asse – immer splitten lasse"
+      </li>
+      <li>
+        <strong>Übe regelmäßig:</strong> Unser <a routerLink="/training">Trainingsmodus</a> 
+        gibt dir sofortiges Feedback
+      </li>
+      <li>
+        <strong>Keine Abweichungen:</strong> Die Strategie funktioniert nur, wenn du sie 
+        konsequent anwendest
+      </li>
+    </ol>
+  </section>
+
+  <section class="content-section cta-section">
+    <h2>Strategie jetzt trainieren</h2>
+    <p>
+      Theorie ist gut, Praxis ist besser. Im interaktiven Training lernst du die Basic Strategy 
+      Schritt für Schritt – mit sofortigem Feedback zu jeder Entscheidung.
+    </p>
+    <div class="cta-buttons">
+      <a routerLink="/training" class="btn btn-primary">Training starten</a>
+      <a routerLink="/glossar" class="btn btn-secondary">Begriffe nachschlagen</a>
+    </div>
+  </section>
+</article>

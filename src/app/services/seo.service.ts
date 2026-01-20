@@ -2,10 +2,10 @@
  * SEO Service - Dynamic meta tags, Open Graph, Twitter Cards, JSON-LD Schema
  */
 
-import { Injectable, inject, PLATFORM_ID } from '@angular/core';
+import { Injectable, inject } from '@angular/core';
 import { Meta, Title } from '@angular/platform-browser';
 import { Router, NavigationEnd } from '@angular/router';
-import { DOCUMENT, isPlatformBrowser } from '@angular/common';
+import { DOCUMENT } from '@angular/common';
 import { filter } from 'rxjs/operators';
 
 export interface SeoConfig {
@@ -17,6 +17,7 @@ export interface SeoConfig {
   ogImage?: string;
   twitterCard?: 'summary' | 'summary_large_image';
   schema?: object;
+  noIndex?: boolean;
 }
 
 @Injectable({
@@ -27,7 +28,6 @@ export class SeoService {
   private readonly title = inject(Title);
   private readonly router = inject(Router);
   private readonly document = inject(DOCUMENT);
-  private readonly platformId = inject(PLATFORM_ID);
 
   private readonly baseUrl = 'https://blackjack-trainer.de';
   private readonly defaultImage = 'https://blackjack-trainer.de/icons/icon-512x512.png';
@@ -88,11 +88,9 @@ export class SeoService {
   }
 
   /**
-   * Update canonical URL link element
+   * Update canonical URL link element (works on both server and browser)
    */
   private updateCanonicalUrl(url: string): void {
-    if (!isPlatformBrowser(this.platformId)) return;
-
     const canonicalUrl = `${this.baseUrl}${url === '/' ? '' : url}`;
     let link: HTMLLinkElement | null = this.document.querySelector('link[rel="canonical"]');
 
@@ -105,21 +103,21 @@ export class SeoService {
   }
 
   /**
-   * Update JSON-LD Schema markup
+   * Update JSON-LD Schema markup (works on both server and browser)
    */
   private updateSchema(schema: object): void {
-    if (!isPlatformBrowser(this.platformId)) return;
-
     // Remove existing schema script
-    if (this.schemaScriptElement) {
-      this.schemaScriptElement.remove();
+    const existingScript = this.document.querySelector('script[data-seo-schema]');
+    if (existingScript) {
+      existingScript.remove();
     }
 
     // Create new schema script
-    this.schemaScriptElement = this.document.createElement('script');
-    this.schemaScriptElement.type = 'application/ld+json';
-    this.schemaScriptElement.text = JSON.stringify(schema);
-    this.document.head.appendChild(this.schemaScriptElement);
+    const schemaScript = this.document.createElement('script');
+    schemaScript.type = 'application/ld+json';
+    schemaScript.setAttribute('data-seo-schema', 'true');
+    schemaScript.text = JSON.stringify(schema);
+    this.document.head.appendChild(schemaScript);
   }
 
   /**
@@ -204,6 +202,73 @@ export class SeoService {
         name: item.name,
         item: `${this.baseUrl}${item.url}`,
       })),
+    };
+  }
+
+  /**
+   * Get FAQPage schema for FAQ pages
+   */
+  getFaqSchema(faqs: { question: string; answer: string }[]): object {
+    return {
+      '@context': 'https://schema.org',
+      '@type': 'FAQPage',
+      mainEntity: faqs.map((faq) => ({
+        '@type': 'Question',
+        name: faq.question,
+        acceptedAnswer: {
+          '@type': 'Answer',
+          text: faq.answer,
+        },
+      })),
+    };
+  }
+
+  /**
+   * Get Article schema for content pages
+   */
+  getArticleSchema(config: {
+    headline: string;
+    description: string;
+    url: string;
+    datePublished?: string;
+    dateModified?: string;
+  }): object {
+    return {
+      '@context': 'https://schema.org',
+      '@type': 'Article',
+      headline: config.headline,
+      description: config.description,
+      url: `${this.baseUrl}${config.url}`,
+      datePublished: config.datePublished || '2026-01-20',
+      dateModified: config.dateModified || '2026-01-20',
+      author: {
+        '@type': 'Organization',
+        name: this.siteName,
+        url: this.baseUrl,
+      },
+      publisher: {
+        '@type': 'Organization',
+        name: this.siteName,
+        url: this.baseUrl,
+        logo: {
+          '@type': 'ImageObject',
+          url: `${this.baseUrl}/icons/icon-512x512.png`,
+        },
+      },
+      inLanguage: 'de-DE',
+    };
+  }
+
+  /**
+   * Get combined schema with multiple types
+   */
+  getCombinedSchema(schemas: object[]): object {
+    return {
+      '@context': 'https://schema.org',
+      '@graph': schemas.map((schema) => {
+        const { '@context': _, ...rest } = schema as Record<string, unknown>;
+        return rest;
+      }),
     };
   }
 }
