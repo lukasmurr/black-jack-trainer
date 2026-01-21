@@ -1,19 +1,19 @@
 <article class="content-page faq-page">
   <header class="page-header">
-    <nav class="breadcrumb" aria-label="Breadcrumb">
-      <a routerLink="/">Startseite</a>
+    <nav class="breadcrumb" aria-label="Breadcrumb" i18n-aria-label="@@breadcrumb.ariaLabel">
+      <a routerLink="/" i18n="@@breadcrumb.home">Startseite</a>
       <span aria-hidden="true">›</span>
-      <span aria-current="page">FAQ</span>
+      <span aria-current="page" i18n="@@breadcrumb.faq">FAQ</span>
     </nav>
-    <h1>Blackjack FAQ – Häufige Fragen und Antworten</h1>
-    <p class="intro">
+    <h1 i18n="@@faq.title">Blackjack FAQ - Häufige Fragen und Antworten</h1>
+    <p class="intro" i18n="@@faq.intro">
       Hier findest du Antworten auf die am häufigsten gestellten Fragen rund um Blackjack 
       (auch Black Jack geschrieben), die Basic Strategy und unseren Trainer.
     </p>
   </header>
 
   <section class="content-section" id="fragen">
-    <h2>Häufig gestellte Fragen</h2>
+    <h2 i18n="@@faq.questions.title">Häufig gestellte Fragen</h2>
     
     <div class="faq-list">
       @for (faq of faqs; track faq.question; let i = $index) {
@@ -42,28 +42,28 @@
   </section>
 
   <section class="content-section" id="weitere-ressourcen">
-    <h2>Weitere Ressourcen</h2>
-    <p>
+    <h2 i18n="@@faq.resources.title">Weitere Ressourcen</h2>
+    <p i18n="@@faq.resources.intro">
       Deine Frage war nicht dabei? In unseren anderen Artikeln findest du noch mehr Informationen:
     </p>
     <ul class="resource-links">
-      <li><a routerLink="/regeln">Blackjack Regeln – Die Grundlagen erklärt</a></li>
-      <li><a routerLink="/spielweise">Wie spielt man Blackjack? – Schritt-für-Schritt</a></li>
-      <li><a routerLink="/kartenwerte">Kartenwerte, Soft & Hard Hands</a></li>
-      <li><a routerLink="/strategie">Die optimale Basic Strategy</a></li>
-      <li><a routerLink="/glossar">Glossar – Alle Begriffe von A bis Z</a></li>
+      <li><a routerLink="/regeln" i18n="@@faq.resources.rules">Blackjack Regeln - Die Grundlagen erklärt</a></li>
+      <li><a routerLink="/spielweise" i18n="@@faq.resources.gameplay">Wie spielt man Blackjack? - Schritt-für-Schritt</a></li>
+      <li><a routerLink="/kartenwerte" i18n="@@faq.resources.cardValues">Kartenwerte, Soft & Hard Hands</a></li>
+      <li><a routerLink="/strategie" i18n="@@faq.resources.strategy">Die optimale Basic Strategy</a></li>
+      <li><a routerLink="/glossar" i18n="@@faq.resources.glossary">Glossar - Alle Begriffe von A bis Z</a></li>
     </ul>
   </section>
 
   <section class="content-section cta-section">
-    <h2>Hast du weitere Fragen?</h2>
-    <p>
+    <h2 i18n="@@faq.cta.title">Hast du weitere Fragen?</h2>
+    <p i18n="@@faq.cta.text">
       Die beste Art zu lernen ist durch Praxis. Starte jetzt das kostenlose Training 
       und lerne die Basic Strategy Schritt für Schritt.
     </p>
     <div class="cta-buttons">
-      <a routerLink="/training" class="btn btn-primary">Training starten</a>
-      <a routerLink="/game" class="btn btn-secondary">Jetzt spielen</a>
+      <a routerLink="/training" class="btn btn-primary" i18n="@@cta.startTraining">Training starten</a>
+      <a routerLink="/game" class="btn btn-secondary" i18n="@@cta.playNow">Jetzt spielen</a>
     </div>
   </section>
 </article>

@@ -369,7 +369,7 @@ export class GameStateService {
             this._message.set(results[0].message);
         } else {
             const wins = results.filter(r => r.outcome === 'win' || r.outcome === 'blackjack').length;
-            this._message.set(`${wins} von ${results.length} Händen gewonnen`);
+            this._message.set($localize`:@@game.result.multiHand:${wins}:wins: von ${results.length}:total: Händen gewonnen`);
         }
         this._showMessage.set(true);
     }
@@ -491,9 +491,9 @@ export class GameStateService {
 
         // Show feedback message
         if (wasCorrect) {
-            this._message.set('✓ Richtig!');
+            this._message.set($localize`:@@training.feedback.correct:✓ Richtig!`);
         } else {
-            this._message.set(`✗ Falsch! Richtige Antwort: ${this.actionToGerman(scenario.correctAction)}`);
+            this._message.set($localize`:@@training.feedback.incorrect:✗ Falsch! Richtige Antwort: ${this.actionToGerman(scenario.correctAction)}:action:`);
         }
         this._showMessage.set(true);
     }
@@ -555,14 +555,14 @@ export class GameStateService {
     }
 
     /**
-     * Translates action to German
+     * Translates action to localized string
      */
     private actionToGerman(action: PlayerAction): string {
         switch (action) {
-            case 'hit': return 'Hit';
-            case 'stand': return 'Stand';
-            case 'double': return 'Double';
-            case 'split': return 'Split';
+            case 'hit': return $localize`:@@action.hit:Hit`;
+            case 'stand': return $localize`:@@action.stand:Stand`;
+            case 'double': return $localize`:@@action.double:Double`;
+            case 'split': return $localize`:@@action.split:Split`;
         }
     }
 }

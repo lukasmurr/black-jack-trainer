@@ -1,12 +1,12 @@
 <article class="training-page" itemscope itemtype="https://schema.org/WebApplication">
   <header class="training-header">
-    <h1 itemprop="name">📚 Blackjack Strategie-Training</h1>
-    <p class="subtitle" itemprop="description">Lerne die optimale Blackjack Basic Strategy kostenlos</p>
+    <h1 itemprop="name" i18n="@@training.title">📚 Blackjack Strategie-Training</h1>
+    <p class="subtitle" itemprop="description" i18n="@@training.subtitle">Lerne die optimale Blackjack Basic Strategy kostenlos</p>
   </header>
 
   <div class="training-layout">
     <!-- Sidebar -->
-    <aside class="sidebar" aria-label="Trainingsstatistiken">
+    <aside class="sidebar" aria-label="Trainingsstatistiken" i18n-aria-label="@@training.stats.ariaLabel">
       <app-stats-display
         [stats]="gameState.trainingStats()"
         (resetClicked)="onResetStats()"
@@ -21,25 +21,25 @@
     <!-- Main Training Area -->
     <main class="training-area" role="main">
       @if (gameState.trainingState().currentScenario) {
-        <section class="scenario-container" aria-label="Aktuelles Trainingsszenario">
+        <section class="scenario-container" aria-label="Aktuelles Trainingsszenario" i18n-aria-label="@@training.scenario.ariaLabel">
           <div class="scenario-type">
             {{ getHandTypeLabel() }}
           </div>
 
           <!-- Dealer Card -->
-          <section class="dealer-section" aria-label="Dealer-Karte">
+          <section class="dealer-section" aria-label="Dealer-Karte" i18n-aria-label="@@training.dealerCard.ariaLabel">
             <app-hand
               [hand]="gameState.dealerHand()"
-              label="Dealer zeigt"
+              [label]="dealerShowsLabel"
               [isDealer]="true"
             />
           </section>
 
           <!-- Player Hand -->
-          <section class="player-section" aria-label="Deine Hand">
+          <section class="player-section" aria-label="Deine Hand" i18n-aria-label="@@training.yourHand.ariaLabel">
             <app-hand
               [hand]="gameState.activeHand()"
-              label="Deine Hand"
+              [label]="yourHandLabel"
               [isActive]="true"
             />
           </section>
@@ -47,7 +47,7 @@
           <!-- Question -->
           <div class="question-box" role="status" aria-live="polite">
             <span class="question-icon" aria-hidden="true">❓</span>
-            <span class="question-text">Was ist die optimale Aktion?</span>
+            <span class="question-text" i18n="@@training.question">Was ist die optimale Aktion?</span>
           </div>
 
           <!-- Action Buttons -->
@@ -64,9 +64,9 @@
         </section>
       } @else {
         <div class="no-scenario">
-          <p>Lade Trainingsszenarien...</p>
+          <p i18n="@@training.loading">Lade Trainingsszenarien...</p>
           <button class="start-btn" (click)="startTraining()">
-            Training starten
+            <ng-container i18n="@@training.start">Training starten</ng-container>
           </button>
         </div>
       }
@@ -92,7 +92,7 @@
             {{ gameState.trainingState().currentScenario?.explanation }}
           </div>
         }
-        <button class="next-btn">
+        <button class="next-btn" i18n="@@training.continue">
           Weiter (Klick oder Leertaste)
         </button>
       </div>

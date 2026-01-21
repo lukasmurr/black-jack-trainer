@@ -344,7 +344,7 @@ export class BlackjackService {
             return {
                 outcome: 'lose',
                 payout: 0,
-                message: 'Bust! Du hast verloren.',
+                message: $localize`:@@result.bust:Bust! Du hast verloren.`,
             };
         }
 
@@ -354,13 +354,13 @@ export class BlackjackService {
                 return {
                     outcome: 'push',
                     payout: playerHand.bet,
-                    message: 'Beide Blackjack - Unentschieden!',
+                    message: $localize`:@@result.bothBlackjack:Beide Blackjack - Unentschieden!`,
                 };
             }
             return {
                 outcome: 'blackjack',
                 payout: playerHand.bet * 2.5, // 3:2 payout
-                message: 'Blackjack! Gewinn 3:2!',
+                message: $localize`:@@result.blackjackWin:Blackjack! Gewinn 3:2!`,
             };
         }
 
@@ -369,7 +369,7 @@ export class BlackjackService {
             return {
                 outcome: 'lose',
                 payout: 0,
-                message: 'Dealer hat Blackjack! Du verlierst.',
+                message: $localize`:@@result.dealerBlackjack:Dealer hat Blackjack! Du verlierst.`,
             };
         }
 
@@ -378,7 +378,7 @@ export class BlackjackService {
             return {
                 outcome: 'win',
                 payout: playerHand.bet * 2,
-                message: 'Dealer Bust! Du gewinnst!',
+                message: $localize`:@@result.dealerBust:Dealer Bust! Du gewinnst!`,
             };
         }
 
@@ -390,19 +390,19 @@ export class BlackjackService {
             return {
                 outcome: 'win',
                 payout: playerHand.bet * 2,
-                message: `${playerFinal} schlägt ${dealerFinal}. Du gewinnst!`,
+                message: $localize`:@@result.playerWins:${playerFinal}:player: schlägt ${dealerFinal}:dealer:. Du gewinnst!`,
             };
         } else if (dealerFinal > playerFinal) {
             return {
                 outcome: 'lose',
                 payout: 0,
-                message: `${dealerFinal} schlägt ${playerFinal}. Dealer gewinnt.`,
+                message: $localize`:@@result.dealerWins:${dealerFinal}:dealer: schlägt ${playerFinal}:player:. Dealer gewinnt.`,
             };
         } else {
             return {
                 outcome: 'push',
                 payout: playerHand.bet,
-                message: `Push bei ${playerFinal}. Einsatz zurück.`,
+                message: $localize`:@@result.push:Push bei ${playerFinal}:value:. Einsatz zurück.`,
             };
         }
     }

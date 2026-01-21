@@ -19,20 +19,20 @@ export class SpielweisePageComponent implements OnInit {
 
   ngOnInit(): void {
     const breadcrumbs = this.seoService.getBreadcrumbSchema([
-      { name: 'Startseite', url: '/' },
-      { name: 'Spielweise', url: '/spielweise' },
+      { name: $localize`:@@breadcrumb.home:Startseite`, url: '/' },
+      { name: $localize`:@@breadcrumb.gameplay:Spielweise`, url: '/spielweise' },
     ]);
 
     const article = this.seoService.getArticleSchema({
-      headline: 'Wie spielt man Blackjack? – Anleitung für Anfänger',
-      description: 'Schritt-für-Schritt-Anleitung zum Blackjack spielen: Von der ersten Karte bis zur Auszahlung.',
+      headline: $localize`:@@gameplay.seo.headline:Wie spielt man Blackjack? - Anleitung für Anfänger`,
+      description: $localize`:@@gameplay.seo.articleDesc:Schritt-für-Schritt-Anleitung zum Blackjack spielen: Von der ersten Karte bis zur Auszahlung.`,
       url: '/spielweise',
     });
 
     this.seoService.updateSeo({
-      title: 'Wie spielt man Blackjack? Anleitung für Anfänger',
-      description: 'Blackjack spielen lernen: Schritt-für-Schritt-Anleitung mit Beispielen. Hit, Stand, Double, Split – alle Aktionen erklärt.',
-      keywords: 'Blackjack spielen, wie spielt man Blackjack, Black Jack Anleitung, Blackjack für Anfänger, 21 spielen lernen',
+      title: $localize`:@@gameplay.seo.title:Wie spielt man Blackjack? Anleitung für Anfänger`,
+      description: $localize`:@@gameplay.seo.description:Blackjack spielen lernen: Schritt-für-Schritt-Anleitung mit Beispielen. Hit, Stand, Double, Split - alle Aktionen erklärt.`,
+      keywords: $localize`:@@gameplay.seo.keywords:Blackjack spielen, wie spielt man Blackjack, Black Jack Anleitung, Blackjack für Anfänger, 21 spielen lernen`,
       canonicalUrl: 'https://blackjack-trainer.de/spielweise',
       schema: this.seoService.getCombinedSchema([breadcrumbs, article]),
     });

@@ -19,20 +19,20 @@ export class StrategiePageComponent implements OnInit {
 
   ngOnInit(): void {
     const breadcrumbs = this.seoService.getBreadcrumbSchema([
-      { name: 'Startseite', url: '/' },
-      { name: 'Strategie', url: '/strategie' },
+      { name: $localize`:@@breadcrumb.home:Startseite`, url: '/' },
+      { name: $localize`:@@breadcrumb.strategy:Strategie`, url: '/strategie' },
     ]);
 
     const article = this.seoService.getArticleSchema({
-      headline: 'Blackjack Strategie – Die optimale Basic Strategy',
-      description: 'Lerne die mathematisch optimale Blackjack-Strategie (Basic Strategy) und reduziere den Hausvorteil auf unter 0,5%.',
+      headline: $localize`:@@strategy.seo.headline:Blackjack Strategie - Die optimale Basic Strategy`,
+      description: $localize`:@@strategy.seo.articleDesc:Lerne die mathematisch optimale Blackjack-Strategie (Basic Strategy) und reduziere den Hausvorteil auf unter 0,5%.`,
       url: '/strategie',
     });
 
     this.seoService.updateSeo({
-      title: 'Blackjack Strategie – Basic Strategy Tabelle & Tipps',
-      description: 'Die optimale Blackjack Basic Strategy: Wann Hit, Stand, Double oder Split? Reduziere den Hausvorteil mit der mathematisch besten Spielweise.',
-      keywords: 'Blackjack Strategie, Basic Strategy, Black Jack Strategie, optimale Spielweise, Blackjack Tabelle, Hausvorteil reduzieren',
+      title: $localize`:@@strategy.seo.title:Blackjack Strategie - Basic Strategy Tabelle & Tipps`,
+      description: $localize`:@@strategy.seo.description:Die optimale Blackjack Basic Strategy: Wann Hit, Stand, Double oder Split? Reduziere den Hausvorteil mit der mathematisch besten Spielweise.`,
+      keywords: $localize`:@@strategy.seo.keywords:Blackjack Strategie, Basic Strategy, Black Jack Strategie, optimale Spielweise, Blackjack Tabelle, Hausvorteil reduzieren`,
       canonicalUrl: 'https://blackjack-trainer.de/strategie',
       schema: this.seoService.getCombinedSchema([breadcrumbs, article]),
     });

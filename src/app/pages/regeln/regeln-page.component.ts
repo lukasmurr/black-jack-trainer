@@ -19,20 +19,20 @@ export class RegelnPageComponent implements OnInit {
 
   ngOnInit(): void {
     const breadcrumbs = this.seoService.getBreadcrumbSchema([
-      { name: 'Startseite', url: '/' },
-      { name: 'Blackjack Regeln', url: '/regeln' },
+      { name: $localize`:@@breadcrumb.home:Startseite`, url: '/' },
+      { name: $localize`:@@breadcrumb.rules:Blackjack Regeln`, url: '/regeln' },
     ]);
 
     const article = this.seoService.getArticleSchema({
-      headline: 'Blackjack Regeln – So funktioniert das Kartenspiel',
-      description: 'Lerne die offiziellen Blackjack Regeln: Kartenwerte, Spielablauf, Dealer-Regeln und Gewinnbedingungen einfach erklärt.',
+      headline: $localize`:@@rules.seo.headline:Blackjack Regeln - So funktioniert das Kartenspiel`,
+      description: $localize`:@@rules.seo.articleDesc:Lerne die offiziellen Blackjack Regeln: Kartenwerte, Spielablauf, Dealer-Regeln und Gewinnbedingungen einfach erklärt.`,
       url: '/regeln',
     });
 
     this.seoService.updateSeo({
-      title: 'Blackjack Regeln – Spielregeln einfach erklärt',
-      description: 'Die vollständigen Blackjack Regeln: Kartenwerte, Spielablauf, Dealer-Regeln und wann du gewinnst. Für Anfänger verständlich erklärt.',
-      keywords: 'Blackjack Regeln, Black Jack Regeln, Blackjack Spielregeln, Kartenspiel Regeln, 21 Regeln',
+      title: $localize`:@@rules.seo.title:Blackjack Regeln - Spielregeln einfach erklärt`,
+      description: $localize`:@@rules.seo.description:Die vollständigen Blackjack Regeln: Kartenwerte, Spielablauf, Dealer-Regeln und wann du gewinnst. Für Anfänger verständlich erklärt.`,
+      keywords: $localize`:@@rules.seo.keywords:Blackjack Regeln, Black Jack Regeln, Blackjack Spielregeln, Kartenspiel Regeln, 21 Regeln`,
       canonicalUrl: 'https://blackjack-trainer.de/regeln',
       schema: this.seoService.getCombinedSchema([breadcrumbs, article]),
     });

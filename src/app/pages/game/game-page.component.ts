@@ -8,7 +8,6 @@ import {
     HandComponent,
     ActionButtonsComponent,
     BettingSectionComponent,
-    MessageDisplayComponent,
 } from '../../components';
 
 @Component({
@@ -18,7 +17,6 @@ import {
         HandComponent,
         ActionButtonsComponent,
         BettingSectionComponent,
-        MessageDisplayComponent,
     ],
     templateUrl: './game-page.component.html',
     styleUrl: './game-page.component.scss',
@@ -28,12 +26,18 @@ export class GamePageComponent implements OnInit {
     protected readonly gameState = inject(GameStateService);
     private readonly seoService = inject(SeoService);
 
+    // i18n labels
+    protected readonly dealerLabel = $localize`:@@game.dealer:Dealer`;
+    protected readonly playerLabel = $localize`:@@game.player:Spieler`;
+    protected readonly handLabel = $localize`:@@game.hand:Hand`;
+    protected readonly gameDescription = $localize`:@@game.meta.description:Kostenloses Blackjack-Spiel zum Üben der Strategie`;
+
     ngOnInit(): void {
         // SEO Meta-Tags aktualisieren
         this.seoService.updateSeo({
-            title: 'Blackjack Spiel - Kostenloser Simulator',
-            description: 'Spiele Blackjack kostenlos in unserem Simulator. Teste deine Strategie ohne Risiko und verbessere deine Fähigkeiten.',
-            keywords: 'Blackjack spielen, Blackjack kostenlos, Blackjack Simulator, Casino Spiel, Kartenspiel online',
+            title: $localize`:@@seo.game.title:Blackjack Spiel - Kostenloser Simulator`,
+            description: $localize`:@@seo.game.description:Spiele Blackjack kostenlos in unserem Simulator. Teste deine Strategie ohne Risiko und verbessere deine Fähigkeiten.`,
+            keywords: $localize`:@@seo.game.keywords:Blackjack spielen, Blackjack kostenlos, Blackjack Simulator, Casino Spiel, Kartenspiel online`,
             canonicalUrl: 'https://blackjack-trainer.de/game',
             schema: this.seoService.getGamePageSchema(),
         });
@@ -57,6 +61,12 @@ export class GamePageComponent implements OnInit {
                 this.onSplit();
                 break;
         }
+    }
+
+    getPlayerLabel(index: number): string {
+        return this.gameState.playerHands().length > 1
+            ? `${this.handLabel} ${index + 1}`
+            : this.playerLabel;
     }
 
     onBetPlaced(amount: number): void {

@@ -31,6 +31,13 @@ export class TrainingPageComponent implements OnInit {
     private readonly strategyService = inject(StrategyService);
     private readonly seoService = inject(SeoService);
 
+    // i18n labels
+    protected readonly dealerShowsLabel = $localize`:@@training.dealerShows:Dealer zeigt`;
+    protected readonly yourHandLabel = $localize`:@@training.yourHand:Deine Hand`;
+    protected readonly hardHandLabel = $localize`:@@training.handType.hard:Hard Hand`;
+    protected readonly softHandLabel = $localize`:@@training.handType.soft:Soft Hand`;
+    protected readonly pairLabel = $localize`:@@training.handType.pair:Pair`;
+
     @HostListener('window:keydown', ['$event'])
     handleKeyDown(event: KeyboardEvent): void {
         // Navigate with spacebar or enter when message is shown
@@ -64,9 +71,9 @@ export class TrainingPageComponent implements OnInit {
     ngOnInit(): void {
         // SEO Meta-Tags aktualisieren
         this.seoService.updateSeo({
-            title: 'Blackjack Strategie Training',
-            description: 'Lerne die optimale Blackjack Basic Strategy mit unserem interaktiven Training. Übe kostenlos und verbessere deine Gewinnchancen.',
-            keywords: 'Blackjack Training, Basic Strategy, Blackjack lernen, Kartenspiel üben, Casino Strategie',
+            title: $localize`:@@seo.training.title:Blackjack Strategie Training`,
+            description: $localize`:@@seo.training.description:Lerne die optimale Blackjack Basic Strategy mit unserem interaktiven Training. Übe kostenlos und verbessere deine Gewinnchancen.`,
+            keywords: $localize`:@@seo.training.keywords:Blackjack Training, Basic Strategy, Blackjack lernen, Kartenspiel üben, Casino Strategie`,
             canonicalUrl: 'https://blackjack-trainer.de/training',
             schema: this.seoService.getTrainingPageSchema(),
         });
@@ -102,9 +109,9 @@ export class TrainingPageComponent implements OnInit {
         if (!scenario) return '';
 
         switch (scenario.handType) {
-            case 'hard': return 'Hard Hand';
-            case 'soft': return 'Soft Hand';
-            case 'pair': return 'Pair';
+            case 'hard': return this.hardHandLabel;
+            case 'soft': return this.softHandLabel;
+            case 'pair': return this.pairLabel;
         }
     }
 

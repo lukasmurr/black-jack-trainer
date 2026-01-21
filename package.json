@@ -4,9 +4,15 @@
   "scripts": {
     "ng": "ng",
     "start": "ng serve",
+    "start:de": "ng serve -c development-de",
+    "start:en": "ng serve -c development-en",
     "build": "ng build",
+    "build:de": "ng build -c production-de",
+    "build:en": "ng build -c production-en",
+    "build:i18n": "ng build --localize",
     "watch": "ng build --watch --configuration development",
-    "test": "ng test"
+    "test": "ng test",
+    "extract-i18n": "ng extract-i18n --format json --out-file src/i18n/messages.json"
   },
   "prettier": {
     "printWidth": 100,
@@ -40,6 +46,7 @@
     "@angular/build": "^21.1.0",
     "@angular/cli": "^21.1.0",
     "@angular/compiler-cli": "^21.1.0",
+    "@angular/localize": "^21.1.0",
     "angular-cli-ghpages": "^3.0.2",
     "jsdom": "^27.1.0",
     "typescript": "~5.9.2",

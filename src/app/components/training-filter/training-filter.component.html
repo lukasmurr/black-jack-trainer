@@ -1,5 +1,5 @@
 <div class="filter-container">
-  <h4 class="filter-title">🎯 Trainingsfilter</h4>
+  <h4 class="filter-title" i18n="@@filter.title">🎯 Trainingsfilter</h4>
   
   <div class="filter-options">
     <label class="filter-option">
@@ -9,8 +9,8 @@
         (change)="toggleFilter('hardHands')"
       />
       <span class="checkbox-custom"></span>
-      <span class="option-label">Hard Hands</span>
-      <span class="option-desc">Hände ohne weiches Ass</span>
+      <span class="option-label" i18n="@@filter.hardHands">Hard Hands</span>
+      <span class="option-desc" i18n="@@filter.hardHands.desc">Hände ohne weiches Ass</span>
     </label>
 
     <label class="filter-option">
@@ -20,8 +20,8 @@
         (change)="toggleFilter('softHands')"
       />
       <span class="checkbox-custom"></span>
-      <span class="option-label">Soft Hands</span>
-      <span class="option-desc">Hände mit Ass als 11</span>
+      <span class="option-label" i18n="@@filter.softHands">Soft Hands</span>
+      <span class="option-desc" i18n="@@filter.softHands.desc">Hände mit Ass als 11</span>
     </label>
 
     <label class="filter-option">
@@ -31,13 +31,13 @@
         (change)="toggleFilter('pairs')"
       />
       <span class="checkbox-custom"></span>
-      <span class="option-label">Pairs</span>
-      <span class="option-desc">Teilbare Paare</span>
+      <span class="option-label" i18n="@@filter.pairs">Pairs</span>
+      <span class="option-desc" i18n="@@filter.pairs.desc">Teilbare Paare</span>
     </label>
   </div>
 
   @if (!hasActiveFilter()) {
-    <div class="warning">
+    <div class="warning" i18n="@@filter.warning">
       ⚠️ Mindestens eine Kategorie auswählen!
     </div>
   }

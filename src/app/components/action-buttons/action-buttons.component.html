@@ -1,10 +1,12 @@
-<div class="actions-container" role="group" aria-label="Spielaktionen">
+<div class="actions-container" role="group" aria-label="Spielaktionen" i18n-aria-label="@@actions.ariaLabel">
   <button
     class="action-btn hit"
     [disabled]="!canHit()"
     (click)="hitClicked.emit()"
     aria-label="Hit - Karte nehmen"
+    i18n-aria-label="@@actions.hit.ariaLabel"
     title="Hit (H)"
+    i18n-title="@@actions.hit.title"
   >
     <span class="icon">🃏</span>
     <span class="label">Hit</span>
@@ -15,7 +17,9 @@
     [disabled]="!canStand()"
     (click)="standClicked.emit()"
     aria-label="Stand - Stehen bleiben"
+    i18n-aria-label="@@actions.stand.ariaLabel"
     title="Stand (S)"
+    i18n-title="@@actions.stand.title"
   >
     <span class="icon">✋</span>
     <span class="label">Stand</span>
@@ -26,7 +30,9 @@
     [disabled]="!canDouble()"
     (click)="doubleClicked.emit()"
     aria-label="Double - Verdoppeln"
+    i18n-aria-label="@@actions.double.ariaLabel"
     title="Double (D)"
+    i18n-title="@@actions.double.title"
   >
     <span class="icon">💰</span>
     <span class="label">Double</span>
@@ -37,7 +43,9 @@
     [disabled]="!canSplit()"
     (click)="splitClicked.emit()"
     aria-label="Split - Teilen"
+    i18n-aria-label="@@actions.split.ariaLabel"
     title="Split (P)"
+    i18n-title="@@actions.split.title"
   >
     <span class="icon">✂️</span>
     <span class="label">Split</span>

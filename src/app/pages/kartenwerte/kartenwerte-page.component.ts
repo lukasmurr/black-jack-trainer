@@ -19,20 +19,20 @@ export class KartenwertePageComponent implements OnInit {
 
   ngOnInit(): void {
     const breadcrumbs = this.seoService.getBreadcrumbSchema([
-      { name: 'Startseite', url: '/' },
-      { name: 'Kartenwerte', url: '/kartenwerte' },
+      { name: $localize`:@@breadcrumb.home:Startseite`, url: '/' },
+      { name: $localize`:@@breadcrumb.cardValues:Kartenwerte`, url: '/kartenwerte' },
     ]);
 
     const article = this.seoService.getArticleSchema({
-      headline: 'Blackjack Kartenwerte – Soft Hands, Hard Hands & Ass-Regeln',
-      description: 'Alle Kartenwerte bei Blackjack erklärt: Wie zählt das Ass? Was sind Soft und Hard Hands?',
+      headline: $localize`:@@cardValues.seo.headline:Blackjack Kartenwerte - Soft Hands, Hard Hands & Ass-Regeln`,
+      description: $localize`:@@cardValues.seo.articleDesc:Alle Kartenwerte bei Blackjack erklärt: Wie zählt das Ass? Was sind Soft und Hard Hands?`,
       url: '/kartenwerte',
     });
 
     this.seoService.updateSeo({
-      title: 'Blackjack Kartenwerte – Soft & Hard Hands erklärt',
-      description: 'Blackjack Kartenwerte verstehen: Wie viel zählt das Ass? Was ist der Unterschied zwischen Soft und Hard Hand? Alle Werte im Überblick.',
-      keywords: 'Blackjack Kartenwerte, Soft Hand, Hard Hand, Blackjack Ass, Black Jack Punkte, Kartenzählen Werte',
+      title: $localize`:@@cardValues.seo.title:Blackjack Kartenwerte - Soft & Hard Hands erklärt`,
+      description: $localize`:@@cardValues.seo.description:Blackjack Kartenwerte verstehen: Wie viel zählt das Ass? Was ist der Unterschied zwischen Soft und Hard Hand? Alle Werte im Überblick.`,
+      keywords: $localize`:@@cardValues.seo.keywords:Blackjack Kartenwerte, Soft Hand, Hard Hand, Blackjack Ass, Black Jack Punkte, Kartenzählen Werte`,
       canonicalUrl: 'https://blackjack-trainer.de/kartenwerte',
       schema: this.seoService.getCombinedSchema([breadcrumbs, article]),
     });

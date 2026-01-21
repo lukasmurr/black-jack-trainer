@@ -20,13 +20,13 @@
     }
     
     @if (hand().cards.length === 0) {
-      <div class="empty-hand">Keine Karten</div>
+      <div class="empty-hand" i18n="@@hand.noCards">Keine Karten</div>
     }
   </div>
 
   @if (hand().bet > 0) {
     <div class="bet-display">
-      Einsatz: €{{ hand().bet }}
+      <ng-container i18n="@@hand.bet">Einsatz:</ng-container> €{{ hand().bet }}
       @if (hand().isDoubledDown) {
         <span class="doubled-badge">2x</span>
       }

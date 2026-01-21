@@ -1,4 +1,4 @@
-<nav class="app-nav" role="navigation" aria-label="Hauptnavigation">
+<nav class="app-nav" role="navigation" aria-label="Hauptnavigation" i18n-aria-label="@@nav.ariaLabel">
   <div class="nav-container">
     <a class="logo" routerLink="/">
       <span class="logo-icon">&#x1F0CF;</span>
@@ -7,30 +7,38 @@
 
     <!-- Desktop Navigation -->
     <div class="nav-links desktop-nav">
-      <a routerLink="/training" routerLinkActive="active" class="nav-link" aria-label="Zum Training">
-        <span>&#128218;</span> Training
+      <a routerLink="/training" routerLinkActive="active" class="nav-link" aria-label="Zum Training" i18n-aria-label="@@nav.training.ariaLabel">
+        <span>&#128218;</span> <ng-container i18n="@@nav.training">Training</ng-container>
       </a>
-      <a routerLink="/game" routerLinkActive="active" class="nav-link" aria-label="Zum Spiel">
-        <span>&#127920;</span> Spielen
+      <a routerLink="/game" routerLinkActive="active" class="nav-link" aria-label="Zum Spiel" i18n-aria-label="@@nav.game.ariaLabel">
+        <span>&#127920;</span> <ng-container i18n="@@nav.game">Spielen</ng-container>
       </a>
       <div class="nav-dropdown">
         <button class="nav-link dropdown-trigger" aria-haspopup="true">
-          <span>&#128214;</span> Lernen <span class="dropdown-arrow">▾</span>
+          <span>&#128214;</span> <ng-container i18n="@@nav.learn">Lernen</ng-container> <span class="dropdown-arrow">▾</span>
         </button>
         <div class="dropdown-menu" role="menu">
-          <a routerLink="/regeln" routerLinkActive="active" class="dropdown-item" role="menuitem">Regeln</a>
-          <a routerLink="/spielweise" routerLinkActive="active" class="dropdown-item" role="menuitem">Spielweise</a>
-          <a routerLink="/kartenwerte" routerLinkActive="active" class="dropdown-item" role="menuitem">Kartenwerte</a>
-          <a routerLink="/strategie" routerLinkActive="active" class="dropdown-item" role="menuitem">Strategie</a>
-          <a routerLink="/glossar" routerLinkActive="active" class="dropdown-item" role="menuitem">Glossar</a>
+          <a routerLink="/regeln" routerLinkActive="active" class="dropdown-item" role="menuitem" i18n="@@nav.rules">Regeln</a>
+          <a routerLink="/spielweise" routerLinkActive="active" class="dropdown-item" role="menuitem" i18n="@@nav.gameplay">Spielweise</a>
+          <a routerLink="/kartenwerte" routerLinkActive="active" class="dropdown-item" role="menuitem" i18n="@@nav.cardValues">Kartenwerte</a>
+          <a routerLink="/strategie" routerLinkActive="active" class="dropdown-item" role="menuitem" i18n="@@nav.strategy">Strategie</a>
+          <a routerLink="/glossar" routerLinkActive="active" class="dropdown-item" role="menuitem" i18n="@@nav.glossary">Glossar</a>
           <a routerLink="/faq" routerLinkActive="active" class="dropdown-item" role="menuitem">FAQ</a>
         </div>
+      </div>
+
+      <!-- Language Switcher (Desktop) -->
+      <div class="language-switcher">
+        <a [href]="getAlternateLocaleUrl()" class="lang-link" [attr.hreflang]="localeService.alternateLocale">
+          {{ localeService.getLocaleFlag(localeService.alternateLocale) }}
+          {{ localeService.getLocaleDisplayName(localeService.alternateLocale) }}
+        </a>
       </div>
     </div>
 
     <!-- Mobile Menu Toggle -->
     <button class="mobile-menu-btn" (click)="toggleMobileMenu()" [attr.aria-expanded]="mobileMenuOpen()"
-      aria-label="Menu oeffnen">
+      aria-label="Menü öffnen" i18n-aria-label="@@nav.mobile.openMenu">
       @if (mobileMenuOpen()) {
         <span>&#10005;</span>
       } @else {
@@ -43,19 +51,28 @@
   @if (mobileMenuOpen()) {
   <div class="mobile-nav" role="menu">
     <a routerLink="/training" routerLinkActive="active" class="nav-link" (click)="closeMobileMenu()" role="menuitem">
-      <span>&#128218;</span> Training
+      <span>&#128218;</span> <ng-container i18n="@@nav.training">Training</ng-container>
     </a>
     <a routerLink="/game" routerLinkActive="active" class="nav-link" (click)="closeMobileMenu()" role="menuitem">
-      <span>&#127920;</span> Spielen
+      <span>&#127920;</span> <ng-container i18n="@@nav.game">Spielen</ng-container>
     </a>
     <div class="mobile-nav-section">
-      <span class="mobile-nav-heading">Lernen</span>
-      <a routerLink="/regeln" routerLinkActive="active" class="nav-link sub" (click)="closeMobileMenu()" role="menuitem">Regeln</a>
-      <a routerLink="/spielweise" routerLinkActive="active" class="nav-link sub" (click)="closeMobileMenu()" role="menuitem">Spielweise</a>
-      <a routerLink="/kartenwerte" routerLinkActive="active" class="nav-link sub" (click)="closeMobileMenu()" role="menuitem">Kartenwerte</a>
-      <a routerLink="/strategie" routerLinkActive="active" class="nav-link sub" (click)="closeMobileMenu()" role="menuitem">Strategie</a>
-      <a routerLink="/glossar" routerLinkActive="active" class="nav-link sub" (click)="closeMobileMenu()" role="menuitem">Glossar</a>
+      <span class="mobile-nav-heading" i18n="@@nav.learn">Lernen</span>
+      <a routerLink="/regeln" routerLinkActive="active" class="nav-link sub" (click)="closeMobileMenu()" role="menuitem" i18n="@@nav.rules">Regeln</a>
+      <a routerLink="/spielweise" routerLinkActive="active" class="nav-link sub" (click)="closeMobileMenu()" role="menuitem" i18n="@@nav.gameplay">Spielweise</a>
+      <a routerLink="/kartenwerte" routerLinkActive="active" class="nav-link sub" (click)="closeMobileMenu()" role="menuitem" i18n="@@nav.cardValues">Kartenwerte</a>
+      <a routerLink="/strategie" routerLinkActive="active" class="nav-link sub" (click)="closeMobileMenu()" role="menuitem" i18n="@@nav.strategy">Strategie</a>
+      <a routerLink="/glossar" routerLinkActive="active" class="nav-link sub" (click)="closeMobileMenu()" role="menuitem" i18n="@@nav.glossary">Glossar</a>
       <a routerLink="/faq" routerLinkActive="active" class="nav-link sub" (click)="closeMobileMenu()" role="menuitem">FAQ</a>
+    </div>
+
+    <!-- Language Switcher (Mobile) -->
+    <div class="mobile-nav-section">
+      <span class="mobile-nav-heading" i18n="@@nav.language">Sprache</span>
+      <a [href]="getAlternateLocaleUrl()" class="nav-link sub lang-link" [attr.hreflang]="localeService.alternateLocale">
+        {{ localeService.getLocaleFlag(localeService.alternateLocale) }}
+        {{ localeService.getLocaleDisplayName(localeService.alternateLocale) }}
+      </a>
     </div>
   </div>
   }
@@ -67,13 +84,13 @@
 
 <footer class="app-footer" itemscope itemtype="https://schema.org/WPFooter">
   <div class="footer-content">
-    <p>&copy; 2026 <span itemprop="name">Blackjack Trainer</span> | Für Übungszwecke</p>
-    <nav class="footer-nav" aria-label="Footer Navigation">
-      <a routerLink="/training" title="Blackjack Training">Training</a>
-      <a routerLink="/game" title="Blackjack Spiel">Spielen</a>
-      <a routerLink="/regeln" title="Blackjack Regeln">Regeln</a>
-      <a routerLink="/strategie" title="Blackjack Strategie">Strategie</a>
-      <a routerLink="/faq" title="Häufige Fragen">FAQ</a>
+    <p>&copy; 2026 <span itemprop="name" i18n="@@app.title">Blackjack Trainer</span> | <ng-container i18n="@@footer.purpose">Für Übungszwecke</ng-container></p>
+    <nav class="footer-nav" aria-label="Footer Navigation" i18n-aria-label="@@footer.nav.ariaLabel">
+      <a routerLink="/training" title="Blackjack Training" i18n-title="@@footer.training.title" i18n="@@nav.training">Training</a>
+      <a routerLink="/game" title="Blackjack Spiel" i18n-title="@@footer.game.title" i18n="@@nav.game">Spielen</a>
+      <a routerLink="/regeln" title="Blackjack Regeln" i18n-title="@@footer.rules.title" i18n="@@nav.rules">Regeln</a>
+      <a routerLink="/strategie" title="Blackjack Strategie" i18n-title="@@footer.strategy.title" i18n="@@nav.strategy">Strategie</a>
+      <a routerLink="/faq" title="Häufige Fragen" i18n-title="@@footer.faq.title">FAQ</a>
     </nav>
   </div>
 </footer>
