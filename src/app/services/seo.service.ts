@@ -162,11 +162,6 @@ export class SeoService {
       },
       aggregateRating: {
         '@type': 'AggregateRating',
-        ratingValue: '5',
-        ratingCount: '1',
-      },
-      aggregateRating: {
-        '@type': 'AggregateRating',
         ratingValue: '4.8',
         ratingCount: '150',
       },
@@ -185,11 +180,18 @@ export class SeoService {
       description: 'Kostenloses Blackjack-Spiel zum Üben der Strategie',
       genre: 'Card Game',
       gamePlatform: 'Web Browser',
+      applicationCategory: 'GameApplication',
+      operatingSystem: 'Web Browser',
       playMode: 'SinglePlayer',
       offers: {
         '@type': 'Offer',
         price: '0',
         priceCurrency: 'EUR',
+      },
+      aggregateRating: {
+        '@type': 'AggregateRating',
+        ratingValue: '4.8',
+        ratingCount: '150',
       },
     };
   }
