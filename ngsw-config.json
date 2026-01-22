@@ -3,30 +3,16 @@
   "index": "/index.html",
   "assetGroups": [
     {
-      "name": "app",
-      "installMode": "prefetch",
+      "name": "critical",
       "resources": {
-        "files": [
-          "/favicon.ico",
-          "/index.html",
-          "/manifest.webmanifest",
-          "/*.css",
-          "/*.js"
-        ]
+        "files": ["/**/*.css", "/**/*.js"]
       }
     },
     {
-      "name": "assets",
-      "installMode": "lazy",
-      "updateMode": "prefetch",
+      "name": "icons",
       "resources": {
-        "files": [
-          "/game-cards/**/*",
-          "/icons/**/*",
-          "/**/*.json",
-          "/**/*.svg",
-          "/**/*.png"
-        ]
+        "files": ["/icons/**"],
+        "cacheConfig": { "strategy": "freshness", "maxSize": 20 }
       }
     }
   ],

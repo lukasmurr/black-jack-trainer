@@ -1,4 +1,15 @@
 /* Global Styles */
+:root {
+  --bg-primary: #0a5f47;
+  --text-primary: #ffffff;
+}
+
+@font-face {
+  font-family: 'Inter';
+  font-display: swap;
+  src: local('Inter'); 
+}
+
 
 *,
 *::before,
