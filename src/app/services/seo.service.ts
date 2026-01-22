@@ -162,6 +162,11 @@ export class SeoService {
       },
       aggregateRating: {
         '@type': 'AggregateRating',
+        ratingValue: '5',
+        ratingCount: '1',
+      },
+      aggregateRating: {
+        '@type': 'AggregateRating',
         ratingValue: '4.8',
         ratingCount: '150',
       },
