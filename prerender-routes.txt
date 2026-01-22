@@ -1,9 +1,0 @@
-/
-/training
-/game
-/regeln
-/spielweise
-/kartenwerte
-/strategie
-/glossar
-/faq
