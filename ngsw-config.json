@@ -11,7 +11,8 @@
           "/index.html",
           "/manifest.webmanifest",
           "/*.css",
-          "/*.js"
+          "/*.js",
+          "/blackjack_strategy.json"
         ]
       }
     },
@@ -23,24 +24,9 @@
         "files": [
           "/game-cards/**/*",
           "/icons/**/*",
-          "/**/*.json",
           "/**/*.svg",
           "/**/*.png"
         ]
-      }
-    }
-  ],
-  "dataGroups": [
-    {
-      "name": "strategy-data",
-      "urls": [
-        "/blackjack_strategy.json"
-      ],
-      "cacheConfig": {
-        "maxSize": 1,
-        "maxAge": "7d",
-        "strategy": "freshness",
-        "timeout": "3s"
       }
     }
   ]
