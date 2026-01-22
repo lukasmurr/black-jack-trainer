@@ -67,7 +67,7 @@ export class TrainingPageComponent implements OnInit {
             title: 'Blackjack Strategie Training',
             description: 'Lerne die optimale Blackjack Basic Strategy mit unserem interaktiven Training. Übe kostenlos und verbessere deine Gewinnchancen.',
             keywords: 'Blackjack Training, Basic Strategy, Blackjack lernen, Kartenspiel üben, Casino Strategie',
-            canonicalUrl: 'https://blackjack-trainer.de/training',
+            canonicalUrl: 'https://blackjack-trainer.de/',
             schema: this.seoService.getTrainingPageSchema(),
         });
 

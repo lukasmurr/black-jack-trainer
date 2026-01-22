@@ -7,17 +7,17 @@ import { Routes } from '@angular/router';
 export const routes: Routes = [
     {
         path: '',
-        redirectTo: 'training',
-        pathMatch: 'full',
-    },
-    {
-        path: 'training',
         loadComponent: () =>
             import('./pages/training/training-page.component').then(m => m.TrainingPageComponent),
         title: 'Blackjack Strategie Training',
         data: {
             description: 'Lerne die optimale Blackjack Basic Strategy mit interaktivem Training. Übe kostenlos und verbessere deine Gewinnchancen.',
         },
+    },
+    {
+        path: 'training',
+        redirectTo: '',
+        pathMatch: 'full',
     },
     {
         path: 'game',

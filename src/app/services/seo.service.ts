@@ -151,7 +151,7 @@ export class SeoService {
       '@context': 'https://schema.org',
       '@type': 'WebApplication',
       name: 'Blackjack Strategie Training',
-      url: `${this.baseUrl}/training`,
+      url: `${this.baseUrl}/`,
       description: 'Interaktives Training für die optimale Blackjack Basic Strategy',
       applicationCategory: 'GameApplication',
       operatingSystem: 'Web Browser',

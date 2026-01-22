@@ -1,5 +1,4 @@
 /
-/training
 /game
 /regeln
 /spielweise
