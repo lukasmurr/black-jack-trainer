@@ -1,0 +1,55 @@
+<div class="betting-container">
+  <div class="bankroll-display">
+    <span class="label">Bankroll:</span>
+    <span class="amount">€{{ bankroll() }}</span>
+  </div>
+
+  <div class="current-bet">
+    <span class="label">Einsatz:</span>
+    <span class="amount">€{{ currentBet() }}</span>
+  </div>
+
+  <div class="chips-container">
+    @for (chip of chipValues; track chip) {
+      <button
+        class="chip"
+        [class.selected]="selectedChip() === chip"
+        [disabled]="chip > bankroll()"
+        (click)="selectChip(chip)"
+        [attr.aria-label]="'Chip €' + chip"
+      >
+        €{{ chip }}
+      </button>
+    }
+  </div>
+
+  <div class="bet-controls">
+    <button 
+      class="control-btn clear" 
+      (click)="clearBet()"
+      [disabled]="currentBet() <= 0"
+    >
+      Clear
+    </button>
+
+    <button 
+      class="control-btn add" 
+      (click)="addToBet()"
+      [disabled]="!canAddBet()"
+    >
+      + €{{ selectedChip() }}
+    </button>
+
+    <button 
+      class="control-btn deal" 
+      (click)="placeBet()"
+      [disabled]="!canDeal()"
+    >
+      Deal! 🃏
+    </button>
+  </div>
+
+  <div class="bet-limits">
+    Min: €{{ minBet }} | Max: €{{ maxBet }}
+  </div>
+</div>

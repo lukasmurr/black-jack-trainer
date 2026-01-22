@@ -1,0 +1,154 @@
+<article class="content-page kartenwerte-page">
+  <header class="page-header">
+    <nav class="breadcrumb" aria-label="Breadcrumb">
+      <a routerLink="/">Startseite</a>
+      <span aria-hidden="true">›</span>
+      <span aria-current="page">Kartenwerte</span>
+    </nav>
+    <h1>Blackjack Kartenwerte – Soft Hands, Hard Hands & Ass-Regeln</h1>
+    <p class="intro">
+      Bei Blackjack hat jede Karte einen festen Punktwert. Besonders wichtig: Das Ass kann flexibel 
+      gezählt werden. Hier erfährst du alles über Kartenwerte und den Unterschied zwischen Soft und Hard Hands.
+    </p>
+  </header>
+
+  <section class="content-section" id="uebersicht">
+    <h2>Kartenwerte im Überblick</h2>
+    <div class="card-table">
+      <table>
+        <thead>
+          <tr>
+            <th>Karte</th>
+            <th>Wert</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>2, 3, 4, 5, 6, 7, 8, 9, 10</td>
+            <td>Aufgedruckter Wert (2–10)</td>
+          </tr>
+          <tr>
+            <td>Bube (J), Dame (Q), König (K)</td>
+            <td>10 Punkte</td>
+          </tr>
+          <tr>
+            <td>Ass (A)</td>
+            <td>1 oder 11 Punkte</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    <p>
+      Die Farbe der Karten (Herz, Karo, Pik, Kreuz) spielt bei Blackjack keine Rolle – 
+      nur der Zahlenwert zählt.
+    </p>
+  </section>
+
+  <section class="content-section" id="ass">
+    <h2>Das Ass – Die flexibelste Karte</h2>
+    <p>
+      Das Ass ist die mächtigste Karte beim Black Jack. Es kann entweder als 1 oder als 11 
+      Punkte gezählt werden – je nachdem, was für deine Hand günstiger ist.
+    </p>
+    <div class="example-box">
+      <strong>Beispiele:</strong>
+      <ul>
+        <li>Ass + 6 = 17 (Soft 17) oder 7 (wenn du weiter ziehst)</li>
+        <li>Ass + 10 = 21 (Blackjack!)</li>
+        <li>Ass + 5 + 8 = 14 (Ass zählt als 1, sonst wären es 24 = Bust)</li>
+      </ul>
+    </div>
+    <p>
+      Das Ass wird automatisch auf 1 heruntergestuft, sobald du dich sonst überkaufen würdest.
+    </p>
+  </section>
+
+  <section class="content-section" id="soft-hand">
+    <h2>Was ist eine Soft Hand?</h2>
+    <p>
+      Eine <strong>Soft Hand</strong> ist eine Hand mit einem Ass, das als 11 gezählt wird. 
+      Du kannst bei einer Soft Hand keine Karte ziehen, die dich sofort zum Bust führt – 
+      das Ass wird einfach auf 1 heruntergestuft.
+    </p>
+    <div class="hand-examples">
+      <div class="hand-example soft">
+        <span class="label">Soft 17</span>
+        <span class="cards">A + 6</span>
+        <span class="note">Ass = 11, sicher zum Ziehen</span>
+      </div>
+      <div class="hand-example soft">
+        <span class="label">Soft 13</span>
+        <span class="cards">A + 2</span>
+        <span class="note">Flexibel, niedrige Summe</span>
+      </div>
+    </div>
+    <p>
+      Soft Hands sind strategisch wertvoll, weil du risikofreier weitere Karten ziehen kannst.
+    </p>
+  </section>
+
+  <section class="content-section" id="hard-hand">
+    <h2>Was ist eine Hard Hand?</h2>
+    <p>
+      Eine <strong>Hard Hand</strong> hat entweder kein Ass oder das Ass muss als 1 gezählt werden, 
+      um unter 21 zu bleiben. Bei Hard Hands besteht ein echtes Bust-Risiko beim Ziehen.
+    </p>
+    <div class="hand-examples">
+      <div class="hand-example hard">
+        <span class="label">Hard 16</span>
+        <span class="cards">10 + 6</span>
+        <span class="note">Kein Ass, Bust-Gefahr bei Hit</span>
+      </div>
+      <div class="hand-example hard">
+        <span class="label">Hard 14</span>
+        <span class="cards">A + 5 + 8</span>
+        <span class="note">Ass muss als 1 zählen</span>
+      </div>
+    </div>
+  </section>
+
+  <section class="content-section" id="paare">
+    <h2>Paare und Splitten</h2>
+    <p>
+      Erhältst du zwei Karten mit gleichem Wert (z.B. 8-8 oder K-K), kannst du „splitten" und 
+      zwei separate Hände spielen. Die Strategie für Paare ist besonders wichtig:
+    </p>
+    <ul>
+      <li><strong>Immer splitten:</strong> Asse und Achter</li>
+      <li><strong>Niemals splitten:</strong> Zehner und Fünfer</li>
+      <li><strong>Situationsabhängig:</strong> Zweier bis Siebener, Neuner</li>
+    </ul>
+    <p>
+      <a routerLink="/strategie">→ Zur vollständigen Split-Strategie</a>
+    </p>
+  </section>
+
+  <section class="content-section" id="blackjack-hand">
+    <h2>Der Blackjack (Natural 21)</h2>
+    <p>
+      Ein „Blackjack" ist die beste Hand im Spiel: Ein Ass + eine 10-wertige Karte (10, J, Q, K) 
+      als Starthand. Diese Kombination:
+    </p>
+    <ul>
+      <li>Schlägt jede andere 21 (z.B. 7+7+7)</li>
+      <li>Wird mit 3:2 ausgezahlt (150€ Gewinn bei 100€ Einsatz)</li>
+      <li>Gewinnt sofort, außer der Dealer hat auch Blackjack (Push)</li>
+    </ul>
+    <div class="info-box">
+      <strong>Achtung:</strong> Manche Casinos zahlen Blackjack nur noch 6:5 aus. 
+      Das verschlechtert deine Gewinnchancen erheblich – meide solche Tische.
+    </div>
+  </section>
+
+  <section class="content-section cta-section">
+    <h2>Kartenwerte üben</h2>
+    <p>
+      Im <a routerLink="/training">Trainingsmodus</a> lernst du automatisch, Soft und Hard Hands 
+      zu unterscheiden und die richtige Entscheidung zu treffen.
+    </p>
+    <div class="cta-buttons">
+      <a routerLink="/training" class="btn btn-primary">Training starten</a>
+      <a routerLink="/strategie" class="btn btn-secondary">Strategie lernen</a>
+    </div>
+  </section>
+</article>

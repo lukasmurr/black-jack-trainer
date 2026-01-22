@@ -1,0 +1,34 @@
+<div 
+  class="card-container"
+  [ngClass]="{
+    'face-down': !card().faceUp,
+    'red': isRed(),
+    'black': !isRed(),
+    'animate-deal': animate()
+  }"
+  [ngStyle]="{ 'animation-delay': animationDelay() }"
+  role="img"
+  [attr.aria-label]="ariaLabel()"
+>
+  @if (card().faceUp) {
+    <div class="card-face">
+      <div class="card-corner top-left">
+        <span class="rank">{{ card().rank }}</span>
+        <span class="suit">{{ suitSymbol() }}</span>
+      </div>
+      
+      <div class="card-center">
+        <span class="suit-large">{{ suitSymbol() }}</span>
+      </div>
+      
+      <div class="card-corner bottom-right">
+        <span class="rank">{{ card().rank }}</span>
+        <span class="suit">{{ suitSymbol() }}</span>
+      </div>
+    </div>
+  } @else {
+    <div class="card-back">
+      <div class="card-pattern"></div>
+    </div>
+  }
+</div>
