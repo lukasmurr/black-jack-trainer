@@ -20,7 +20,7 @@
     flex-wrap: wrap;
     
     a {
-      color: white;
+      color: var(--primary, #059669);
       text-decoration: none;
       
       &:hover {
@@ -56,7 +56,7 @@
     border-bottom: 2px solid var(--primary, #059669);
   }
   
-  a {
+  a:not(.btn) {
     color: var(--primary, #059669);
     text-decoration: none;
     font-weight: 500;
