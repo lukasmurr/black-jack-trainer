@@ -18,7 +18,6 @@ import {
         HandComponent,
         ActionButtonsComponent,
         BettingSectionComponent,
-        MessageDisplayComponent,
     ],
     templateUrl: './game-page.component.html',
     styleUrl: './game-page.component.scss',
