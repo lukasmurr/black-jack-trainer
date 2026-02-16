@@ -23,6 +23,15 @@ body {
     -moz-osx-font-smoothing: grayscale;
 }
 
+.content-page {
+    --primary: #047857;
+    --text-primary: #111827;
+    --text-secondary: #1f2937;
+    --text-muted: #4b5563;
+    --border: #d1d5db;
+    --bg-secondary: #f3f4f6;
+}
+
 /* Focus styles for accessibility */
 *:focus-visible {
     outline: 2px solid #3b82f6;

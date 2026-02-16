@@ -3,12 +3,12 @@
  */
 
 import { Routes } from '@angular/router';
-import { TrainingPageComponent } from './pages/training/training-page.component';
 
 export const routes: Routes = [
     {
         path: '',
-        component: TrainingPageComponent,
+        loadComponent: () =>
+            import('./pages/training/training-page.component').then(m => m.TrainingPageComponent),
         title: 'Blackjack Strategie Training',
         data: {
             description: 'Lerne die optimale Blackjack Basic Strategy mit interaktivem Training. Übe kostenlos und verbessere deine Gewinnchancen.',
@@ -84,6 +84,6 @@ export const routes: Routes = [
     },
     {
         path: '**',
-        redirectTo: 'training',
+        redirectTo: '',
     },
 ];

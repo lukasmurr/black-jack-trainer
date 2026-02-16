@@ -5,7 +5,7 @@
 import { Component, inject, signal, OnInit, afterNextRender } from '@angular/core';
 import { RouterOutlet, RouterLink, RouterLinkActive } from '@angular/router';
 import { DOCUMENT } from '@angular/common';
-import { GameStateService, SeoService } from './services';
+import { SeoService } from './services';
 
 @Component({
   selector: 'app-root',
@@ -16,7 +16,6 @@ import { GameStateService, SeoService } from './services';
 })
 export class App implements OnInit {
   private readonly document = inject(DOCUMENT);
-  private readonly gameState = inject(GameStateService);
   private readonly seoService = inject(SeoService);
 
   protected readonly title = signal('Blackjack Trainer');
