@@ -23,13 +23,28 @@ export class App implements OnInit {
 
   constructor() {
     afterNextRender(() => {
+      if (!this.shouldLoadAds()) {
+        return;
+      }
+
       // Lazy load Google Ads
       const script = this.document.createElement('script');
       script.src = 'https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-2691860326275004';
       script.async = true;
       script.crossOrigin = 'anonymous';
+      script.onerror = () => {
+        // Ad blockers can block this request; keep app behavior unaffected.
+      };
       this.document.head.appendChild(script);
     });
+  }
+
+  private shouldLoadAds(): boolean {
+    const hostname = this.document.location?.hostname;
+    const isProductionHost = hostname === 'blackjack-trainer.de' || hostname === 'www.blackjack-trainer.de';
+    const doNotTrack = this.document.defaultView?.navigator?.doNotTrack;
+
+    return isProductionHost && doNotTrack !== '1';
   }
 
   ngOnInit(): void {
