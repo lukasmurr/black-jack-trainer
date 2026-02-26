@@ -90,7 +90,7 @@
         "deploy": {
           "builder": "angular-cli-ghpages:deploy",
           "options": {
-            "dir": "dist/black-jack-trainer/browser"
+            "buildTarget": "black-jack-trainer:build:production,prerender"
           }
         }
       }
